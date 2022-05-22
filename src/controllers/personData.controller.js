@@ -1,41 +1,15 @@
 const express = require("express");
 const router = express.Router();
 require("dotenv").config();
-const autentication = require("../models/auth.model");
+const getList = require("../models/personData.model");
 
-router.get("/", (req, res) => {
-  const personDataList = [
-    {
-      name: "Erick Lima",
-      email: "as@gmail.com",
-      nascimento: "04/02/1995",
-      telefone: "(31)98467-5300",
-    },
-    {
-      name: "Marcela Lima",
-      email: "Marcel@gmail.com",
-      nascimento: "04/02/1999",
-      telefone: "(31)98467-1212",
-    },
-  ];
-  res.status(200).json(personDataList);
+router.get("/", async (req, res, next) => {
+  try {
+    const response = await getList();
 
-  // autentication(req.body.username, req.body.password, (err, result) => {
-  //   if (result) {
-  //     Log('Autentication', result, 'sucess', (v,status)=>{
-  //       if(status){
-  //         var token = jwt.sign({ data: req.body.username }, 'stringsecret', { expiresIn: process.env.EXPIRE });
-  //         res.status(200).json({message:'success', token: token});
-  //       }
-  //     })
-
-  //   } else {
-  //     Log('Autentication', err, 'fail', (v,status)=>{
-  //       if(status){
-  //         res.status(401).json({ message: "fail", lote: v });
-  //       }
-  //     })
-  //   }
-  // })
+    res.status(200).send(response);
+  } catch (error) {
+    next(error);
+  }
 });
 module.exports = router;
