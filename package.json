@@ -1,0 +1,32 @@
+{
+  "name": "api_vida_portal",
+  "version": "1.0.0",
+  "description": "Api integration portal and Vida",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "jest",
+    "secure-mode": "jest --watch --verbose=true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://alexandreazevedo0724@dev.azure.com/alexandreazevedo0724/Vileve%20Pay/_git/API_Vida_Portal"
+  },
+  "author": "Albert Ferreira",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mssql": "^3.3.0",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
+  }
+}
