@@ -15,7 +15,6 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const response = await postList(req.body);
-
     res.status(200).send(response);
   } catch (error) {
     next(error);
