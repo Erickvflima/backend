@@ -41,5 +41,12 @@ function getList() {
     console.error(err);
   }
 }
+function postList(body) {
+  try {
+    return body;
+  } catch (err) {
+    console.error(err);
+  }
+}
 
-module.exports = getList;
+module.exports = { getList, postList };
